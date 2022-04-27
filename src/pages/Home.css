@@ -1,0 +1,13 @@
+.Home{
+    display: grid;
+    grid-template-columns: 18rem auto 20rem;
+    gap: 1rem;
+}
+
+.center{
+    background-color: green;
+}
+
+.right{
+    background-color: aquamarine;
+}

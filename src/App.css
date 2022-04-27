@@ -1,0 +1,29 @@
+:root {
+  --yellow: #f5c32c;
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: rgba(36, 45, 73, 0.65);
+  --profileShadow:  0px 4px 17px 2px rgba(0, 0, 0, 0.25);
+--hrColor: #CFCDCD;
+--cardColor: rgba(255, 255, 255, 0.64);
+}
+
+.App {
+  overflow: hidden;
+  color: var(--black);
+  background: #F3F3F3;
+  height: 100vh;
+  padding: 1rem 1rem;
+}
+
+
+/* blur */
+.blur {
+  position: absolute;
+  width: 22rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: #a6ddf0;
+  /* z-index: ; */
+  filter: blur(72px);
+}
