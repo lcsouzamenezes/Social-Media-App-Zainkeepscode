@@ -4,11 +4,11 @@
 }
 .Search {
   display: flex;
-  background-color: rgba(40, 52, 62, 0.07);
+  background-color: var(--inputColor);
   border-radius: 10px;
   padding: 5px;
 }
-input {
+.Search>input {
   background-color: transparent;
   border: none;
   outline: none;

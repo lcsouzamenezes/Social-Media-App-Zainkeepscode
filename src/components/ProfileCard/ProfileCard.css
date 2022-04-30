@@ -4,13 +4,17 @@
   flex-direction: column;
   position: relative;
   gap: 1rem;
-  overflow: hidden;
+  overflow-x: clip;
   background-color: var(--cardColor);
 }
 
 /* Profile Images */
 .ProfileImages {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .ProfileImages > img:nth-of-type(1) {
@@ -20,7 +24,6 @@
   width: 6rem;
   border-radius: 50%;
   position: absolute;
-  left: 33%;
   bottom: -3rem;
   box-shadow: var(--profileShadow);
 }
@@ -90,4 +93,5 @@
     color: orange;
     align-self: center;
     margin-bottom: 1rem;
+    cursor: pointer;
 }
