@@ -1,7 +1,11 @@
 import React from "react";
 import "./Auth.css";
 import Logo from "../../img/logo.png";
+import {Link, useParams} from 'react-router-dom';
 const Auth = () => {
+
+  let params = useParams();
+
   return (
     <div className="Auth">
       <div className="a-left">
@@ -12,8 +16,7 @@ const Auth = () => {
           <h6>Explore the ideas throughout the world</h6>
         </div>
       </div>
-      {/* <LogIn /> */}
-      <SignUp/>
+      {params.authForm === 'login'?<LogIn/>:<SignUp/>}
     </div>
   );
 };
@@ -33,7 +36,9 @@ function LogIn() {
         </div>
 
         <div>
+          <Link to='/signup'>
           <span style={{ fontSize: "12px" }}>Don't have an account Sign up</span>
+          </Link>
           <button className="button infoButton">Login</button>
         </div>
       </form>
@@ -62,7 +67,9 @@ function SignUp() {
           />
         </div>
         <div>
+          <Link to='/login'>
           <span style={{ fontSize: "12px" }}>Already have an account Login</span>
+          </Link>
           <button className="button infoButton">Sign up</button>
         </div>
       </form>
