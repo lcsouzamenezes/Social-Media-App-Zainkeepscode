@@ -51,6 +51,14 @@ const ProfileModal = ({ modalOpened, setModalOpened }) => {
           />
         </div>
 
+
+        <div>
+          Profile image
+          <input type="file" name="profileImg"/>
+          Cover image
+          <input type="file" name="coverImage" />
+        </div>
+
         <button className="button infoButton">Update</button>
       </form>
     </Modal>

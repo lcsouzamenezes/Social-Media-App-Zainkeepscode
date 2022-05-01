@@ -4,6 +4,7 @@
   justify-content: center;
   height: 100vh;
   gap: 4rem;
+  position: relative;
 }
 
 .Auth > div {
@@ -59,5 +60,7 @@
 }
 
 .authForm>div{
-    width: auto;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
