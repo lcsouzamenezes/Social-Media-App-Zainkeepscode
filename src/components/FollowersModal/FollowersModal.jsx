@@ -1,14 +1,24 @@
-import React, {useState} from "react";
+import React from "react";
+import { Modal, useMantineTheme } from "@mantine/core";
 import { Followers } from "../../Data/FollwersData";
-import "./FollowersCard.css";
-import FollowersModal from '../FollowersModal/FollowersModal';
 
-const FollowersCard = () => {
-
-  const [modalOpened, setModalOpened] = useState(false)
-
+const FollowersModal = ({ modalOpened, setModalOpened }) => {
+  const theme = useMantineTheme();
   return (
-    <div className="FollowersCard">
+    <Modal
+      overlayColor={
+        theme.colorScheme === "dark"
+          ? theme.colors.dark[9]
+          : theme.colors.gray[2]
+      }
+      overlayOpacity={0.55}
+      overlayBlur={3}
+      size="55%"
+      opened={modalOpened}
+      onClose={() => setModalOpened(false)}
+    >
+
+<div className="FollowersCard">
       <h3>Who is following you</h3>
 
       {Followers.map((follower, id) => {
@@ -25,11 +35,9 @@ const FollowersCard = () => {
           </div>
         );
       })}
-
-      <span onClick={()=>setModalOpened(true)}>Show more</span>
-      <FollowersModal modalOpened={modalOpened} setModalOpened={setModalOpened}/>
     </div>
+    </Modal>
   );
 };
 
-export default FollowersCard;
+export default FollowersModal;

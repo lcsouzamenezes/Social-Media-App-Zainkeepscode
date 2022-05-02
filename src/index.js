@@ -8,7 +8,7 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-          <Route path=":authForm" element={<Auth />} />
+        <Route path=":authForm" element={<Auth />} />
         <Route
           path="*"
           element={

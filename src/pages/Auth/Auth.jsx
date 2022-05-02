@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Auth.css";
 import Logo from "../../img/logo.png";
-import {Link, useParams} from 'react-router-dom';
+import { Link, useParams } from "react-router-dom";
+
 const Auth = () => {
-
   let params = useParams();
-
   return (
     <div className="Auth">
       <div className="a-left">
@@ -16,7 +15,7 @@ const Auth = () => {
           <h6>Explore the ideas throughout the world</h6>
         </div>
       </div>
-      {params.authForm === 'login'?<LogIn/>:<SignUp/>}
+      {params.authForm === "login" ? <LogIn /> : <SignUp />}
     </div>
   );
 };
@@ -28,16 +27,28 @@ function LogIn() {
         <h3>Log In</h3>
 
         <div>
-          <input type="text" placeholder="Username" className="infoInput" />
+          <input
+            type="text"
+            placeholder="Username"
+            className="infoInput"
+            name="username"
+          />
         </div>
 
         <div>
-          <input type="password" className="infoInput" placeholder="Password" />
+          <input
+            type="password"
+            className="infoInput"
+            placeholder="Password"
+            name="password"
+          />
         </div>
 
         <div>
-          <Link to='/signup'>
-          <span style={{ fontSize: "12px" }}>Don't have an account Sign up</span>
+          <Link to="/signup">
+            <span style={{ fontSize: "12px" }}>
+              Don't have an account Sign up
+            </span>
           </Link>
           <button className="button infoButton">Login</button>
         </div>
@@ -47,30 +58,91 @@ function LogIn() {
 }
 
 function SignUp() {
+  const [data, setData] = useState({
+    firstname: "",
+    lastname: "",
+    username: "",
+    password: "",
+    confirmpass: "",
+  });
+
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+  };
+
+
+  const handleSubmit = ()=>{
+    if(data.password === data.confirmpass)
+    {
+
+    }
+  }
+
+
+
+
+
+
+
   return (
     <div className="a-right">
-      <form className="infoForm authForm">
+      <form className="infoForm authForm" onSubmit={handleSubmit}>
         <h3>Sign up</h3>
         <div>
-          <input type="text" placeholder="First Name" className="infoInput" />
-          <input type="text" placeholder="Last Name" className="infoInput" />
-        </div>
-        <div>
-          <input type="text" placeholder="Username" className="infoInput" />
-        </div>
-        <div>
-          <input type="password" className="infoInput" placeholder="Password" />
           <input
-            type="password"
+            type="text"
+            placeholder="First Name"
             className="infoInput"
-            placeholder="Confirm Password"
+            name="firstname"
+            value={data.firstname}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            className="infoInput"
+            name="lastname"
+            value={data.lastname}
+            onChange={handleChange}
+
           />
         </div>
         <div>
-          <Link to='/login'>
-          <span style={{ fontSize: "12px" }}>Already have an account Login</span>
+          <input
+            type="text"
+            placeholder="Username"
+            className="infoInput"
+            name='username'
+            value={data.username}
+            onChange={handleChange}
+
+          />
+        </div>
+        <div>
+          <input
+            type="password"
+            className="infoInput"
+            placeholder="Password"
+            name="password"
+            value={data.password}
+            onChange={handleChange}
+
+          />
+          <input
+            type="password"
+            className="infoInput"
+            name="confirmpass"
+            placeholder="Confirm Password"
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <Link to="/login">
+            <span style={{ fontSize: "12px" }}>
+              Already have an account Login
+            </span>
           </Link>
-          <button className="button infoButton">Sign up</button>
+          <button className="button infoButton" type="Submit">Sign up</button>
         </div>
       </form>
     </div>
