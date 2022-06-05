@@ -1,6 +1,6 @@
 import React from "react";
 import { Modal, useMantineTheme } from "@mantine/core";
-import { Followers } from "../../Data/FollwersData";
+import FollowersCard from "../FollowersCard/FollowersCard";
 
 const FollowersModal = ({ modalOpened, setModalOpened }) => {
   const theme = useMantineTheme();
@@ -18,24 +18,7 @@ const FollowersModal = ({ modalOpened, setModalOpened }) => {
       onClose={() => setModalOpened(false)}
     >
 
-<div className="FollowersCard">
-      <h3>Who is following you</h3>
-
-      {Followers.map((follower, id) => {
-        return (
-          <div className="follower" id={id}>
-            <div>
-              <img src={follower.img} alt="profile" className="followerImage" />
-              <div className="name">
-                <span>{follower.name}</span>
-                <span>@{follower.username}</span>
-              </div>
-            </div>
-            <button className="button fc-button">Follow</button>
-          </div>
-        );
-      })}
-    </div>
+    <FollowersCard location='modal'/>
     </Modal>
   );
 };

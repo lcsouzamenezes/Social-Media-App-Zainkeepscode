@@ -1,25 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
+import store from "./store/ReduxStore";
 import App from "./App";
-import Auth from "./pages/Auth/Auth";
+
+// stack overflow
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />}>
-        <Route path=":authForm" element={<Auth />} />
-        <Route
-          path="*"
-          element={
-            <main style={{ padding: "1rem" }}>
-              <p>There's nothing here!</p>
-            </main>
-          }
-        />
-      </Route>
-    </Routes>
-  </BrowserRouter>,
+  <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<App />} />
+        </Routes>
+      </BrowserRouter>
+  </Provider>,
   document.getElementById("root")
 );
 
